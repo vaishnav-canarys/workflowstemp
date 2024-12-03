@@ -1,0 +1,20 @@
+
+name: Call CodeQL Workflow
+on: 
+  push:
+    branches:
+    - master
+    - uat.gcc
+    - preprod.gcc
+  pull_request:
+    branches:
+    - master
+    - uat.gcc
+    - preprod.gcc
+  workflow_dispatch:
+jobs:
+  call-workflow:
+    uses: GeM-1-0/.github/.github/workflows/codeql-workflow.yml@main
+    with:
+      language: Python
+      runner-type: self-hosted
